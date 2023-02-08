@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MovieService } from 'src/app/features/movies/movie.service';
-import { Movie } from './interfaces/movie';
+import { Movie } from '../../features/movies/interfaces/movie';
 
 @Component({
   selector: 'app-movies.page',
