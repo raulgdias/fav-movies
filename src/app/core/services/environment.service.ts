@@ -10,4 +10,5 @@ export class EnvironmentService {
 
   public getServerUrl = (): string => EnvironmentSettings.serverUrl;
   public getServerApiKey = (): string => EnvironmentSettings.apiKey;
+  public getImageServerUrl = (): string => EnvironmentSettings.imageServerUrl;
 }

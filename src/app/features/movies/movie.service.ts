@@ -23,4 +23,7 @@ export class MovieService extends BaseService {
     const response = await this.httpService.get(this.baseUrl('movie/popular', pageNumber?.toString()));
     return this.extractData(response) as MovieResponse;
   }
+
+  public getMovieImageUrl = (imagePath: string): string =>
+    this.baseImageServerUrl(imagePath);
 }

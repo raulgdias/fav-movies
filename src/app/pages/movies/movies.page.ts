@@ -32,6 +32,11 @@ export class MoviesPage {
 
   private async getMovies(): Promise<void> {
     const response = await this.movieService.getPopularMovies(this.page);
-    this.movies = response.results;
+    this.movies = this.mapMoviesWithPosterUrl(response.results);
+  }
+
+  private mapMoviesWithPosterUrl = (movies: Movie[]) => {
+    movies.forEach(movie => movie.poster_url = this.movieService.getMovieImageUrl(movie.poster_path));
+    return movies;
   }
 }

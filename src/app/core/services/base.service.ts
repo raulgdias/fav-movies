@@ -12,6 +12,11 @@ export abstract class BaseService {
 
   constructor(protected environmentService: EnvironmentService) { }
 
+  protected baseImageServerUrl(imagePath: string): string {
+    const route = this.environmentService.getImageServerUrl();
+    return `${route}${imagePath}`;
+  }
+
   protected baseUrl(route: string, page: string = '1'): string {
     const serverUrl: string = this.environmentService.getServerUrl();
     const serverApiKey = this.environmentService.getServerApiKey();
