@@ -1,9 +1,19 @@
-<h1>{{ movies.length }} Movies from The Movie DB</h1>
-<ul>
-    <li *ngFor="let movie of movies">{{ movie.title }}</li>
-</ul>
-<span>Page: {{ page }}</span>
-<p>
-    <button (click)="decreasePage()" type="button" class="btn btn-primary" style="margin-right: 5px;">-</button>
-    <button (click)="increasePage()" type="button" class="btn btn-primary">+</button>
-</p>
+<main class="center movies-page">
+    <ul class="movies-list">
+        <li class="movies-list__item" *ngFor="let movie of movies">
+            <div class="movies-list__cover">
+                <img class="movies-list__image" [src]="movie.poster_url" [alt]="movie.title" />
+            </div>
+            <div class="movies-list__info">
+                <span class="movies-list__name">{{ movie.title }}</span>
+                <span class="movies-list__release">{{ movie.release_date }}</span>
+                <p class="movies-list__overview">{{ movie.overview }}</p>
+            </div>
+        </li>
+    </ul>
+    <span>Page: {{ page }}</span>
+    <p>
+        <button (click)="decreasePage()" type="button" class="btn btn-primary" style="margin-right: 5px;">-</button>
+        <button (click)="increasePage()" type="button" class="btn btn-primary">+</button>
+    </p>
+</main>
