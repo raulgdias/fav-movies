@@ -16,4 +16,38 @@
             </button>
         </li>
     </ul>
-  </main>
+    <div *ngIf="modalIsOpened" class="create-movie-modal">
+        <div class="modal-title">
+            <span>Adicionar novo filme favorito</span>
+            <span (click)="closeModal()" class="close-modal">+</span>
+        </div>
+        <div class="form">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" class="form-control" [(ngModel)]="movieToSave.title"
+                    placeholder="Insira o nome do filme">
+            </div>
+            <div class="form-group">
+                <label>URL da imagem de capa</label>
+                <input type="text" class="form-control" [(ngModel)]="movieToSave.poster_url"
+                    placeholder="Insira uma URL de imagem">
+            </div>
+            <div class="form-group">
+                <label>Data de lançamento</label>
+                <input type="text" class="form-control" [(ngModel)]="movieToSave.release_date"
+                    placeholder="Insira a data de lançamento do filme">
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea class="form-control" [(ngModel)]="movieToSave.overview" rows="3"></textarea>
+            </div>
+            <div class="button-container">
+                <button (click)="saveMovie()" type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+    <div (click)="openModal()" class="float-button">
+        <span>+</span>
+        <span>Adicionar filme</span>
+    </div>
+</main>

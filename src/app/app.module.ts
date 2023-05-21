@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieService } from './features/movies/movie.service';
 import { NavigationModule } from './shared/navigation/navigation.module';
+import { FormsModule } from '@angular/forms';  // <<<< import it here
+
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { NavigationModule } from './shared/navigation/navigation.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     NavigationModule,
