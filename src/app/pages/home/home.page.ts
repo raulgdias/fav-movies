@@ -101,7 +101,7 @@ export class HomePage {
   }
 
   private mapMoviesWithPosterUrl = (movies: Movie[]) => {
-    movies.forEach(movie => movie.poster_url = this.movieService.getMovieImageUrl(movie.poster_path));
+    movies.forEach(movie => movie.poster_url = this.movieService.getMovieImageUrl(movie.poster_path ?? ''));
     return movies;
   }
 }

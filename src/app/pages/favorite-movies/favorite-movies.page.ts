@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieBuilder } from 'src/app/features/movies/classes/movie-builder';
 import { Movie } from 'src/app/features/movies/interfaces/movie';
 import { MovieService } from 'src/app/features/movies/movie.service';
-
-interface NewMovie {
-  id: number,
-  title: string;
-  release_date: string;
-  overview: string;
-  poster_url: string;
-}
 
 @Component({
   selector: 'app-movies.page',
@@ -19,13 +12,11 @@ export class FavoriteMoviesPage implements OnInit {
 
   public movies: Movie[] = [];
 
-  public movieToSave: NewMovie = {
-    id: 0,
-    title: '',
-    release_date: '',
-    overview: '',
-    poster_url: ''
-  };
+  public id!: number;
+  public title!: string;
+  public releaseDate!: string;
+  public overview!: string;
+  public posterUrl!: string;
 
   public movieName: string = '';
   public modalIsOpened = false;
@@ -50,24 +41,25 @@ export class FavoriteMoviesPage implements OnInit {
   }
 
   public saveMovie() {
-    this.movieToSave.id = Math.floor(Math.random() * 1000000);
-
-    if (this.movieToSave.poster_url === '') {
-      this.movieToSave.poster_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
-    }
-
-    this.movieService.storeMovie(this.movieToSave as Movie);
-
-    this.movies = this.movieService.getFavoriteMovies();
-
     this.closeModal();
-    
-    this.movieToSave = {
-      id: 0,
-      title: '',
-      release_date: '',
-      overview: '',
-      poster_url: ''
-    };
+
+    //Utilizando o pattern de Builder
+    const movie: Movie = new MovieBuilder()
+      .setTitle(this.title)
+      .setPoster(this.posterUrl)
+      .setReleaseDate(this.releaseDate)
+      .setOverview(this.overview)
+      .build();
+
+    this.movieService.storeMovie(movie);
+    this.movies = this.movieService.getFavoriteMovies();
+    this.resetVariables();
+  }
+
+  private resetVariables(): void {
+    this.title = '';
+    this.posterUrl = '';
+    this.releaseDate = '';
+    this.overview = '';
   }
 }

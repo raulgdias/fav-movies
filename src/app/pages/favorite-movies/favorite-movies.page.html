@@ -24,22 +24,22 @@
         <div class="form">
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" [(ngModel)]="movieToSave.title"
+                <input type="text" class="form-control" [(ngModel)]="title"
                     placeholder="Insira o nome do filme">
             </div>
             <div class="form-group">
                 <label>URL da imagem de capa</label>
-                <input type="text" class="form-control" [(ngModel)]="movieToSave.poster_url"
+                <input type="text" class="form-control" [(ngModel)]="posterUrl"
                     placeholder="Insira uma URL de imagem">
             </div>
             <div class="form-group">
                 <label>Data de lançamento</label>
-                <input type="text" class="form-control" [(ngModel)]="movieToSave.release_date"
+                <input type="text" class="form-control" [(ngModel)]="releaseDate"
                     placeholder="Insira a data de lançamento do filme">
             </div>
             <div class="form-group">
                 <label>Descrição</label>
-                <textarea class="form-control" [(ngModel)]="movieToSave.overview" rows="3"></textarea>
+                <textarea class="form-control" [(ngModel)]="overview" rows="3"></textarea>
             </div>
             <div class="button-container">
                 <button (click)="saveMovie()" type="button" class="btn btn-primary">Salvar</button>
