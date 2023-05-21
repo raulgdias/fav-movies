@@ -5,7 +5,7 @@
 }
 
 .movies-page {
-    padding: 80px 30px;
+    padding: 40px 30px;
 }
 
 .page-title {
@@ -28,22 +28,23 @@
         margin: 15px;
         overflow: hidden;
         position: relative;
-
+        max-width: 270.25px;
+        
         &:hover {
             .movies-list__info {
                 bottom: 0;
                 opacity: 1;
-                visibility: visible;    
+                visibility: visible;
             }
         }
     }
 
     &__image {
-        max-width: 100%;
+        width: 100%;
     }
 
     &__info {
-        background: linear-gradient(0deg,#0d0d0d, transparent 70%); 
+        background: linear-gradient(0deg, #0d0d0d, transparent 70%);
         bottom: -50px;
         color: white;
         display: flex;
@@ -99,5 +100,39 @@
     &__favorite-icon {
         height: 15px;
         width: 15px;
+    }
+}
+
+.page-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    color: white;
+
+    .arrow {
+        margin: 0px 15px;
+    }
+
+    .number-buttons {
+        display: flex;
+        margin: 0px 30px;
+
+        .number-button {
+            border-radius: 100px;
+            padding: 5px 9px;
+            background-color: #585b5e82;
+        }
+
+        span {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+
+            &:not(:first-child) {
+                margin-left: 15px;
+            }
+        }
     }
 }

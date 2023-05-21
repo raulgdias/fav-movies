@@ -2,18 +2,20 @@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
         <div class="container">
             <a class="navbar-brand" [routerLink]="['/home']">Favorite Movies</a>
-            <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"
+                data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngbCollapse]="isCollapsed">
 
 
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
+                        <a class="nav-link text-dark" [routerLink]="['/home']">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" [routerLink]="['/movies']">Movies</a>
+                        <a class="nav-link text-dark" [routerLink]="['/favorite-movies']">My favorite movies</a>
                     </li>
                 </ul>
             </div>

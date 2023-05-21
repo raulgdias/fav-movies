@@ -9,16 +9,11 @@
                 <span class="movies-list__release">{{ movie.release_date }}</span>
                 <p class="movies-list__overview">{{ movie.overview }}</p>
             </div>
-            <button type="button" title="Favorite" class="movies-list__favorite-button">
+            <button (click)="removeMovie(movie)" type="button" title="Favorite" class="movies-list__favorite-button">
                 <svg class="movies-list__favorite-icon">
                     <use href="#heart" />
                 </svg>
             </button>
         </li>
     </ul>
-    <span>Page: {{ page }}</span>
-    <p>
-        <button (click)="decreasePage()" type="button" class="btn btn-primary" style="margin-right: 5px;">-</button>
-        <button (click)="increasePage()" type="button" class="btn btn-primary">+</button>
-    </p>
-</main>
+  </main>

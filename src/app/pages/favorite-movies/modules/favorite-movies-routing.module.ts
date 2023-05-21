@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { moviesPageRoutes } from "./movies.routes";
+import { favoriteMoviesPageRoutes as favoriteMoviesPageRoutes } from "./favorite-movies.routes";
 
-const routes: Routes = moviesPageRoutes;
+const routes: Routes = favoriteMoviesPageRoutes;
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

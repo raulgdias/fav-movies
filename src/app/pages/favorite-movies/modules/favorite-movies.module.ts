@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
-import { MoviesPage } from "../movies.page";
-import { MoviesPageRoutingModule } from "./movies-routing.module";
+import { FavoriteMoviesPage } from "../favorite-movies.page";
+import { MoviesPageRoutingModule } from "./favorite-movies-routing.module";
 
 @NgModule({
     imports: [
@@ -9,9 +9,9 @@ import { MoviesPageRoutingModule } from "./movies-routing.module";
         MoviesPageRoutingModule
     ],
     declarations: [
-        MoviesPage
+        FavoriteMoviesPage
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
-export class MoviesPageModule { }
+export class FavoriteMoviesPageModule { }
