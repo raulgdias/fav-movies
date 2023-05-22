@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MovieBuilder } from 'src/app/features/movies/classes/builder/movie-builder';
+import AlertHandler from 'src/app/features/movies/classes/observer/alert-handler';
+import SaveMovieOnStorageHandler from 'src/app/features/movies/classes/observer/save-movie-on-storage-handler';
 import { Movie } from 'src/app/features/movies/interfaces/movie';
 import { MovieService } from 'src/app/features/movies/movie.service';
 
@@ -53,7 +56,11 @@ export class HomePage {
   };
 
   public saveMovie(movie: Movie): void {
-    this.movieService.storeMovie(movie);
+    const movieBuilder: MovieBuilder = new MovieBuilder()
+      .addActionAfterBuildAMovie(new SaveMovieOnStorageHandler())
+      .addActionAfterBuildAMovie(new AlertHandler())
+
+    movieBuilder.runActionsForNewMovie(movie);
   }
 
   private setPage(page: number) {

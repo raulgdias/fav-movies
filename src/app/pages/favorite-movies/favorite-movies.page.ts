@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieBuilder } from 'src/app/features/movies/classes/movie-builder';
+import { MovieBuilder } from 'src/app/features/movies/classes/builder/movie-builder';
+import AlertHandler from 'src/app/features/movies/classes/observer/alert-handler';
+import SaveMovieOnStorageHandler from 'src/app/features/movies/classes/observer/save-movie-on-storage-handler';
 import { Movie } from 'src/app/features/movies/interfaces/movie';
 import { MovieService } from 'src/app/features/movies/movie.service';
 
@@ -43,15 +45,17 @@ export class FavoriteMoviesPage implements OnInit {
   public saveMovie() {
     this.closeModal();
 
-    //Utilizando o pattern de Builder
-    const movie: Movie = new MovieBuilder()
+    //Utilizando o pattern de Builder e Observer
+    const movieBuilder: MovieBuilder = new MovieBuilder()
       .setTitle(this.title)
       .setPoster(this.posterUrl)
       .setReleaseDate(this.releaseDate)
       .setOverview(this.overview)
-      .build();
+      .addActionAfterBuildAMovie(new SaveMovieOnStorageHandler())
+      .addActionAfterBuildAMovie(new AlertHandler())
 
-    this.movieService.storeMovie(movie);
+    const movie: Movie = movieBuilder.build();
+
     this.movies = this.movieService.getFavoriteMovies();
     this.resetVariables();
   }
