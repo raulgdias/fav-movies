@@ -38,6 +38,13 @@
                 visibility: visible;
             }
         }
+
+        &--favorited {
+            .movies-list__favorite-icon {
+                fill: red;
+                stroke: none;
+            }
+        }
     }
 
     &__image {
@@ -94,13 +101,23 @@
         position: absolute;
         padding: 0;
         right: 15px;
+        transition: all 150ms ease-in-out;
         top: 15px;
         width: 30px;
         z-index: 20;
+
+        &:hover {
+            .movies-list__favorite-icon {
+                fill: red;
+            }
+        }
     }
 
     &__favorite-icon {
         height: 15px;
+        fill: white;
+        stroke: black;
+        transition: all 150ms ease-in-out;
         width: 15px;
     }
 }
@@ -118,6 +135,8 @@
 
     .number-buttons {
         display: flex;
+        cursor: pointer;
+
         margin: 0px 30px;
 
         .number-button {

@@ -59,7 +59,9 @@ export class HomePage {
     const movieBuilder: MovieBuilder = new MovieBuilder()
       .addActionAfterBuildAMovie(new SaveMovieOnStorageHandler())
       .addActionAfterBuildAMovie(new AlertHandler())
-
+    const movieItem = document.querySelector(`.movies-list__item--${movie.id}`)
+    
+    movieItem?.classList.add("movies-list__item--favorited")
     movieBuilder.runActionsForNewMovie(movie);
   }
 

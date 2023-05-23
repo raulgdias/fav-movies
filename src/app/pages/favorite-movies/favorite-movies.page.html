@@ -1,6 +1,6 @@
 <main class="center movies-page">
     <ul class="movies-list">
-        <li class="movies-list__item" *ngFor="let movie of movies">
+        <li class="movies-list__item movies-list__item--favorited" *ngFor="let movie of movies">
             <div class="movies-list__cover">
                 <img class="movies-list__image" [src]="movie.poster_url" [alt]="movie.title" />
             </div>

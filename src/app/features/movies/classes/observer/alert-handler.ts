@@ -5,6 +5,6 @@ export default class AlertHandler implements SaveMovieAction {
     constructor() { }
 
     public execute(movie: Movie): void {
-        alert('Filme favoritado com sucesso');
+        alert(`Filme ${movie.title} favoritado com sucesso`);
     };
 }
